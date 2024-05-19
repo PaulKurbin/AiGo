@@ -1,0 +1,47 @@
+@import "@/src/app/shortClasses.scss";
+
+.accordion {
+  width: 100%;
+  @include flex(center, flex-start);
+  @include f-direction(column);
+  gap: 10px;
+
+  .accordion-header {
+    @include flex(space-between, center);
+    @include f-direction(row);
+    width: 100%;
+    cursor: pointer;
+
+    .title {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--light-grey);
+    }
+
+    .icon {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .rotate {
+      transform: rotate(90deg);
+    }
+  }
+
+  .accordion-content {
+    width: 100%;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+
+    .description {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--white);
+    }
+  }
+
+  &.expanded .accordion-content {
+    overflow: auto;
+  }
+}

@@ -1,0 +1,15 @@
+@import "@/src/app/shortClasses.scss";
+
+.news-list-container {
+  @include flex(flex-start, flex-start);
+  @include f-direction(row);
+  flex-wrap: wrap;
+  gap: 25px 50px;
+  width: 100%;
+
+  min-height: calc(70dvh - 71px);
+
+  @include max-w-media(500px) {
+    @include flex(center, flex-start);
+  }
+}

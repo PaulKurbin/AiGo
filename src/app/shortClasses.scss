@@ -1,0 +1,56 @@
+/* FLEX */
+
+@mixin flex($justify_content, $align_items: normal) {
+  justify-content: $justify_content;
+  align-items: $align_items;
+  display: flex;
+}
+
+@mixin width($width, $max-width: none) {
+  width: $width;
+  max-width: $max-width;
+}
+
+@mixin f-direction($direction) {
+  flex-direction: $direction;
+}
+
+@mixin max-w-media($breakpoint) {
+  @media screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin container {
+  --container-top-padding: 0;
+  --container-side-padding: 15px;
+  --container-width: 1390px;
+
+  width: 100%;
+  margin: 0 auto;
+  max-width: var(--container-width);
+  padding: var(--container-top-padding) var(--container-side-padding);
+
+  @include max-w-media(500px) {
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: calc(100% - 30px);
+    width: 100%;
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+}
+
+@mixin gradientAnimation {
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0 0; // Начальное положение градиента (с крайней левой стороны)
+    }
+    50% {
+      background-position: 100% 0; // Конечное положение градиента (с крайней правой стороны)
+    }
+    100% {
+      background-position: 0 0; // Конечное положение градиента (с крайней правой стороны)
+    }
+  }
+}

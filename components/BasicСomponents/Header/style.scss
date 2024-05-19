@@ -1,0 +1,76 @@
+@import "@/src/app/shortClasses.scss";
+
+header {
+  @include container;
+  @include flex(space-between, center);
+  @include f-direction(row);
+
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  @include max-w-media(500px) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0;
+    width: 100%;
+  }
+
+  .left-side {
+    @include flex(space-between, center);
+    @include f-direction(row);
+
+    max-width: 580px;
+    width: 100%;
+
+    @include max-w-media(500px) {
+      max-width: fit-content;
+      width: calc(100% - 30px);
+    }
+
+    .logo-box {
+      width: fit-content;
+    }
+
+    .logo-box img {
+      width: 105px;
+      height: auto;
+    }
+
+    .link-box {
+      @include flex(flex-start, center);
+      @include f-direction(row);
+
+      gap: 35px;
+
+      a {
+        font-size: 14px;
+        font-weight: 400;
+
+        &:hover {
+          color: var(--primary);
+        }
+      }
+
+      @include max-w-media(500px) {
+        display: none;
+      }
+    }
+  }
+
+  .right-side {
+    .menu-trigger {
+      display: none; // Скрыть триггер на десктопных устройствах
+
+      @include max-w-media(500px) {
+        display: flex;
+      }
+    }
+
+    .btn-box {
+      @include max-w-media(500px) {
+        display: none;
+      }
+    }
+  }
+}

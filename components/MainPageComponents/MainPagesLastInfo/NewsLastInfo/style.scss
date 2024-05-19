@@ -1,0 +1,35 @@
+@import "@/src/app/shortClasses.scss";
+
+.news-list-container {
+  @include flex(flex-start, flex-start);
+  @include f-direction(row);
+  flex-wrap: wrap;
+  gap: 25px 50px;
+  width: 100%;
+
+  @include max-w-media(500px) {
+    display: none;
+  }
+}
+
+.newsSwiper {
+  display: none;
+
+  @include max-w-media(500px) {
+    display: flex;
+
+    .news-item {
+      margin: 0 15px;
+      max-width: 290px;
+    }
+  }
+}
+
+.swiper-wrapper {
+  @include flex(flex-start, flex-start);
+  @include f-direction(row);
+}
+
+.swiper-slide-news {
+  width: fit-content;
+}

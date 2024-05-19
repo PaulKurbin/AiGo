@@ -1,0 +1,234 @@
+@import "@/src/app/shortClasses.scss";
+
+.news-item {
+  @include flex(center, center);
+  @include f-direction(column);
+  gap: 20px;
+
+  position: relative;
+
+  cursor: pointer;
+
+  max-width: 290px;
+  width: 100%;
+  padding: 10px;
+
+  background-color: var(--dark-grey);
+  color: var(--white);
+
+  border-radius: 15px;
+
+  @include max-w-media(500px) {
+    max-width: 450px;
+    width: 100%;
+  }
+
+  .top-box {
+    position: relative;
+
+    height: 200px;
+    width: 100%;
+
+    .prev-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  }
+
+  .content-box {
+    @include flex(flex-start, flex-start);
+    @include f-direction(column);
+
+    gap: 15px;
+    width: 100%;
+
+    .news-title-box {
+      @include flex(flex-start, flex-start);
+      @include f-direction(column);
+      gap: 10px;
+
+      .news-name {
+        font-size: 18px;
+        font-weight: 600;
+        word-break: break-all;
+      }
+
+      .news-preview {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--dark-white);
+        word-break: break-all;
+      }
+    }
+
+    .news-info {
+      @include flex(space-between, center);
+      @include f-direction(row);
+      width: 100%;
+
+      .time-to-read-box {
+        @include flex(center, center);
+        @include f-direction(row);
+        gap: 5px;
+
+        .icon {
+          width: 18px;
+          height: 18px;
+        }
+
+        .time-to-read {
+          font-size: 14px;
+          font-weight: 400;
+          color: var(--dark-white);
+        }
+      }
+
+      .data-post {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--dark-white);
+      }
+    }
+  }
+}
+
+.news-modal {
+  .rodal-mask {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .rodal-dialog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 101;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+
+    @include flex(flex-start, flex-start);
+    @include f-direction(column);
+
+    gap: 20px;
+
+    max-width: 1360px;
+    max-height: 85dvh;
+
+    overflow-y: auto;
+    background-color: var(--black);
+    border: 5px solid var(--black);
+
+    &::-webkit-scrollbar {
+      width: 0px;
+      height: 1px;
+      border-radius: 5px;
+    }
+
+    @include max-w-media(500px) {
+      max-width: 90%;
+      height: fit-content;
+      max-height: 600px;
+
+      gap: 15px;
+
+      padding: 0;
+      border: 10px solid var(--black);
+    }
+
+    iframe {
+      border-radius: 10px;
+      width: 100%;
+      height: 1000px;
+
+      @include max-w-media(500px) {
+        height: 100%;
+      }
+    }
+
+    .full-img-box {
+      width: 100%;
+      position: relative;
+
+      .full-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .time-to-read-box {
+        @include flex(center, center);
+        @include f-direction(row);
+        gap: 5px;
+
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        padding: 0;
+      }
+    }
+
+    .news-content-full {
+      @include flex(flex-start, flex-start);
+      @include f-direction(column);
+      gap: 20px;
+      width: 100%;
+
+      .news-title-full {
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--white);
+
+        @include max-w-media(500px) {
+          font-size: 20px;
+        }
+      }
+
+      .news-text-full {
+        width: 100%;
+
+        p,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        li,
+        a {
+          font-size: 16px;
+          font-weight: 400;
+          color: var(--dark-white);
+          word-break: break-all;
+        }
+      }
+
+      .news-data {
+        @include flex(space-between, center);
+        @include f-direction(row);
+        width: 100%;
+
+        .news-source {
+          font-size: 16px;
+          font-weight: 400;
+          color: var(--primary);
+        }
+
+        .data-post {
+          font-size: 14px;
+          font-weight: 400;
+          color: var(--dark-white);
+        }
+      }
+    }
+
+    .rodal-close {
+      display: none;
+    }
+  }
+}

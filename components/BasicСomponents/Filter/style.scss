@@ -1,0 +1,104 @@
+@import "@/src/app/shortClasses.scss";
+
+.ai-filter-container {
+  @include flex(center, flex-start);
+  @include f-direction(column);
+  width: fit-content;
+  border-radius: 5px;
+  background-color: var(--dark-grey);
+  transition: height 0.3s ease;
+
+  .top-section {
+    @include flex(space-between, center);
+    @include f-direction(row);
+    background-color: var(--primary);
+    width: calc(100% - 30px);
+    gap: 10px;
+    padding: 9px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    @include max-w-media(500px) {
+      box-sizing: border-box;
+      width: 100%;
+      gap: 30px;
+    }
+
+    .title {
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    &.in-active {
+      background-color: var(--black);
+      border: 1px solid var(--primary);
+    }
+
+    &.active {
+      background-color: var(--primary);
+      border: 1px solid var(--black);
+    }
+
+    .icon {
+      transform: rotate(90deg);
+      transition: transform 0.3s ease;
+    }
+
+    .rotate {
+      transform: rotate(-90deg);
+      transition: transform 0.3s ease;
+    }
+  }
+
+  .bottom-section {
+    @include flex(flex-start, flex-start);
+    @include f-direction(column);
+    width: 100%;
+    gap: 5px;
+    max-height: 0;
+    background-color: var(--dark-grey);
+    border-radius: 5px;
+    overflow-y: auto;
+    transition: max-height 0.3s ease;
+
+    label {
+      @include flex(flex-start, center);
+      @include f-direction(row);
+      gap: 5px;
+      padding: 0 15px;
+      font-weight: 200;
+      font-size: 14px;
+
+      &:nth-child(1) {
+        padding-top: 9px;
+      }
+
+      &:last-child {
+        padding-bottom: 9px;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 0px;
+      height: 1px;
+      border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--dark-grey);
+      border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--grey);
+      border-radius: 5px;
+    }
+  }
+
+  &.open {
+    .bottom-section {
+      max-height: 200px;
+    }
+  }
+}

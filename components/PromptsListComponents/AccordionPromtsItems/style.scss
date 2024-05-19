@@ -1,0 +1,82 @@
+@import "@/src/app/shortClasses.scss";
+
+.accordion {
+  width: 100%;
+  @include flex(center, flex-start);
+  @include f-direction(column);
+  gap: 10px;
+
+  .accordion-header {
+    @include flex(space-between, center);
+    @include f-direction(row);
+    width: 100%;
+    cursor: pointer;
+
+    .title {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--light-grey);
+    }
+
+    .icon {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .rotate {
+      transform: rotate(90deg);
+    }
+  }
+
+  .accordion-content {
+    position: relative;
+    width: calc(100% - 10px);
+    background-color: var(--grey);
+    border-radius: 5px;
+
+    cursor: pointer;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--white);
+    }
+
+    &:hover {
+      transition: ease-in-out 0.3s;
+      -webkit-box-shadow: 0px 0px 10px 0px rgba(123, 97, 255, 0.5);
+      -moz-box-shadow: 0px 0px 10px 0px rgba(123, 97, 255, 0.5);
+      box-shadow: 0px 0px 10px 0px rgba(123, 97, 255, 0.5);
+    }
+
+    &::-webkit-scrollbar {
+      width: 0px;
+      height: 1px;
+      border-radius: 5px;
+    }
+  }
+
+  &.expanded .accordion-content {
+    overflow: auto;
+  }
+
+  .copy-btn-container {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    @include flex(center, center);
+    @include f-direction(row);
+    width: 22px;
+    height: 22px;
+    background-color: var(--dark-grey);
+    border-radius: 5px;
+
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
